@@ -176,3 +176,21 @@ if __name__ == '__main__':
     words = ['chamos', 'hunter', 'will', 'shapiro', 'nate', 'griffin', 'dame',
              'youtube', 'ben', 'peter', 'cool', 'super', 'epic', 'style']
     solve(puzzle, words)
+    
+    p2 = [
+        'JRRRATATAJF',
+        'NANWOKVUPIS',
+        'NIBGQIAVOGQ',
+        'HCRENPPNKQU',
+        'SHEOEWOMELI',
+        'YUPQOVYLMYR',
+        'KGRINLEMOPT',
+        'GQIWKLOENUL',
+        'FLAREONAFFE',
+        'GLACEONCBFE',
+        'PIKACHUKTXU'
+    ]
+    
+    w2 = ['jigglypuff', 'pikachu', 'ratata', 'vaporeon', 'raichu', 'glaceon',
+          'eevee', 'flareon', 'pokemon', 'squirtle']
+    solve(p2, w2)
