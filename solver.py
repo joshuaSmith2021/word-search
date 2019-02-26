@@ -63,6 +63,8 @@ def solve(puzzle, words):
         for i in range(len(puzzle)):
             diag = ''
             for j in range(len(puzzle[0]) - i):
+                if i + j == len(puzzle):
+                    break
                 diag += puzzle[i + j][j]
             if word in diag:
                 found.append(word)
@@ -84,6 +86,8 @@ def solve(puzzle, words):
             
             diag = ''
             for j in range(len(puzzle) - i):
+                if j + i == len(puzzle[0]):
+                    break
                 diag += puzzle[j][j + i]
             if word in diag:
                 found.append(word)
