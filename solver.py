@@ -105,7 +105,9 @@ def solve(puzzle, words):
         for i in range(len(puzzle)):
             diag = ''
             for j in range(len(puzzle[0])):
-                diag += puzzle[i - j][0 + j]
+                if i - j < 0:
+                    break
+                diag += puzzle[i - j][j]
                 diag = diag[:i + 1]
             if word in diag:
                 found.append(word)
@@ -141,6 +143,20 @@ def solve(puzzle, words):
                 for k in range(len(word)):
                     Matrix[len(puzzle) - start + k][i + start - k - 1] = word[k].upper()
 
+    return {
+        'words': words,
+        'found': found,
+        'Matrix': Matrix
+    }
+
+
+def print_results(solution):
+    if str(solution) is solution:
+        print(solution)
+        return
+    words = solution['words']
+    found = solution['found']
+    Matrix = solution['Matrix']
 
     if words == found:
         print('All words found.')
@@ -151,8 +167,6 @@ def solve(puzzle, words):
             else:
                 print('{} was found.'.format(word))
 
-
-    # When all is said and done, print the result
     for line in Matrix:
         for char in line:
             print(char, end='')
@@ -179,22 +193,26 @@ if __name__ == '__main__':
 
     words = ['chamos', 'hunter', 'will', 'shapiro', 'nate', 'griffin', 'dame',
              'youtube', 'ben', 'peter', 'cool', 'super', 'epic', 'style']
-    solve(puzzle, words)
-    
+
+    first = solve(puzzle, words)
+    print_results(first)
+
     p2 = [
         'JRRRATATAJF',
         'NANWOKVUPIS',
         'NIBGQIAVOGQ',
-        'HCRENPPNKQU',
+        'HCRENPPNKGU',
         'SHEOEWOMELI',
-        'YUPQOVYLMYR',
+        'YUPQOVRLMYR',
         'KGRINLEMOPT',
         'GQIWKLOENUL',
         'FLAREONAFFE',
         'GLACEONCBFE',
         'PIKACHUKTXU'
     ]
-    
+
     w2 = ['jigglypuff', 'pikachu', 'ratata', 'vaporeon', 'raichu', 'glaceon',
           'eevee', 'flareon', 'pokemon', 'squirtle']
-    solve(p2, w2)
+
+    second = solve(p2, w2)
+    print_results(second)
