@@ -32,7 +32,7 @@ solution = solver.solve(puzzle, words)
 
 Solution is:
 ```txt
-iuegwbrfwiubgwiu
+{'words': ['foo', 'bar'], 'found': ['foo', 'bar'], 'Matrix': [['F', '*', '*', '*', '*', 'R'], ['*', 'O', '*', '*', '*', 'A'], ['*', '*', 'O', '*', '*', 'B']]}
 ```
 
 solver.solve() can return either a string or a dictionary. A string is returned in case of an error.
