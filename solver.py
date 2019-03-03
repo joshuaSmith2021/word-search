@@ -58,7 +58,6 @@ def solve(puzzle, words):
                 end = start - len(word) + 1
                 for k in range(len(word)):
                     Matrix[start - k][i] = word[k].upper()
-        qqq = 0
         # check diagonals
         for i in range(len(puzzle)):
             diag = ''
